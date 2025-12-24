@@ -2,6 +2,7 @@ import './style.css';
 import * as THREE from 'three';
 
 const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x000000);
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 
@@ -10,22 +11,36 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize( window.innerWidth, window.innerHeight );
 
-const geometry = new THREE.BoxGeometry(1, 1, 1);
-const texture = new THREE.TextureLoader().load('assets/iceCubeTex.jpg');
-const material = new THREE.MeshBasicMaterial ({map: texture});
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
+const sphereGeo = new THREE.SphereeGeometry(1, 24, 25);
+const sphereTex = new THREE.TextureLoader().load('assets/iceCubeTex.jpg');
+const sphereMat = new THREE.MeshBasicMaterial ({map: sphereTex});
+const sphere = new THREE.Mesh(sphereGeo, sphereMat);
+scene.add(sphere);
 
-const donut_geo = new THREE.TorusGeometry(10, 3, 16, 100);
+const donut_geo = new THREE.TorusGeometry(10, 1, 16, 100);
 const donut_tex = new THREE.MeshBasicMaterial({color: 0xffffff});
 const donut = new THREE.Mesh(donut_geo, donut_tex);
 scene.add(donut);
 
-camera.position.z = 18;
+const donut_geo2 = new THREE.TorusGeometry(6, 1, 16, 100);
+const donut_tex2 = new THREE.MeshBasicMaterial({color: 0xffffff});
+const donut2 = new THREE.Mesh(donut_geo2, donut_tex2);
+scene.add(donut2);
+
+const donut_geo3 = new THREE.TorusGeometry(3, 1, 16, 100);
+const donut_tex3 = new THREE.MeshBasicMaterial({color: 0xffffff});
+const donut3 = new THREE.Mesh(donut_geo3, donut_tex3);
+scene.add(donut3);
 
 function animate() {
     donut.rotation.x += 0.01;
     donut.rotation.y += 0.01;
+
+    donut2.rotation.x += -0.01;
+    donut2.rotation.z += -0.01;
+
+    donut3.rotation.z += 0.01;
+    donut3.rotation.y += 0.01;
 
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
@@ -48,13 +63,13 @@ function add_star(){
 
 Array(200).fill().forEach(add_star);
 
-camera.position.setZ(45);
+camera.position.setZ(18);
 
 function moveCamera(){
     const t = document.body.getBoundingClientRect().top;
 
-    cube.rotation.y += 0.01;
-    cube.rotation.z += 0.01;
+    sphere.rotation.y += 0.01;
+    sphere.rotation.z += 0.01;
     
     camera.position.z = t * -0.01;
     camera.position.x = t * -0.0000;
