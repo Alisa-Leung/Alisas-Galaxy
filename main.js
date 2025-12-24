@@ -11,9 +11,8 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize( window.innerWidth, window.innerHeight );
 
-const sphereGeo = new THREE.SphereeGeometry(1, 24, 25);
-const sphereTex = new THREE.TextureLoader().load('assets/iceCubeTex.jpg');
-const sphereMat = new THREE.MeshBasicMaterial ({map: sphereTex});
+const sphereGeo = new THREE.SphereGeometry(1, 24, 25);
+const sphereMat = new THREE.MeshBasicMaterial ({color: 0xffffff});
 const sphere = new THREE.Mesh(sphereGeo, sphereMat);
 scene.add(sphere);
 
@@ -63,15 +62,14 @@ function add_star(){
 
 Array(200).fill().forEach(add_star);
 
-camera.position.setZ(18);
-
 function moveCamera(){
+    const camOffset = 18
     const t = document.body.getBoundingClientRect().top;
 
     sphere.rotation.y += 0.01;
     sphere.rotation.z += 0.01;
     
-    camera.position.z = t * -0.01;
+    camera.position.z = t * -0.01 + camOffset;
     camera.position.x = t * -0.0000;
     camera.rotation.y = t * -0.0000;
 }

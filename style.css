@@ -1,6 +1,6 @@
 *{
     font-family:monospace;
-    font-weight: 400;
+    font-weight: 200;
     font-style: normal;
     padding: 0;
     margin: 0;
@@ -23,9 +23,25 @@ main{
 header{
     background: rgba(15, 15, 15, 0.95);
     grid-column: 2 / span 5;
-    font-size: 40px;
+    font-size: 32px;
     padding: 32px;
     margin-bottom: 350px;
+}
+header h1{
+    overflow: hidden;
+    border-right: .15em solid white;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: typing 3.5s steps(40, end), blink .8s step-end infinite;
+}
+@keyframes typing{
+    from {width: 0}
+    to {width: 100%}
+}
+@keyframes blink{
+    from, to {border-color: transparent}
+    50%{border-color: white;}
 }
 section{
     grid-column: 2 / 8;
