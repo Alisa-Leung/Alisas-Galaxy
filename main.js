@@ -75,7 +75,7 @@ function moveCamera(){
 }
 
 document.body.onscroll = moveCamera;
-camera.position.setZ = 20;
+camera.position.setZ(20);
 moveCamera();
 
 window.addEventListener('resize', () => {
