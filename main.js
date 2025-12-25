@@ -2,7 +2,7 @@ import './style.css';
 import * as THREE from 'three';
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x000000);
+scene.background = new THREE.Color("rgb(33, 24, 50)");
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 
@@ -63,7 +63,7 @@ function add_star(){
 Array(200).fill().forEach(add_star);
 
 function moveCamera(){
-    const camOffset = 18
+    const camOffset = 20
     const t = document.body.getBoundingClientRect().top;
 
     sphere.rotation.y += 0.01;

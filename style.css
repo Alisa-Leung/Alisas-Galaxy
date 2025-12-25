@@ -16,24 +16,23 @@ main{
     position: absolute;
     width: 100%;
     margin: 0px auto;
-    padding: 120px 0px;
+    padding-top: 120px;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
 }
 header{
-    background: rgba(15, 15, 15, 0.95);
+    background: rgba(15, 15, 15, 0.5);
     grid-column: 2 / span 5;
     font-size: 32px;
     padding: 33px;
     margin-bottom: 350px;
+    border-radius: 8px;
+    transition: all ease 0.3s;
 }
-header h1{
-    overflow: hidden;
-    border-right: .15em solid white;
-    white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: .15em;
-    animation: typing 1.3s steps(11, end), blink .8s step-end infinite;
+header:hover{
+    transform: translateY(-2px);
+    cursor: pointer;
+    background: rgba(15, 15, 15, 0.75);
 }
 @keyframes typing{
     from {width: 0}
@@ -43,13 +42,29 @@ header h1{
     from, to {border-color: transparent}
     50%{border-color: white;}
 }
+header p{  
+    text-align: left;
+    overflow: hidden;
+    border-right: .15em solid white;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: typing 1.3s steps(21, end), blink .8s step-end;
+}
 section{
     grid-column: 2 / 8;
     padding: 16px;
-    background: rgba(15, 15, 15, 0.95);
+    background: rgba(15, 15, 15, 0.5);
     font-size: 20px;
     line-height: 1.5;
     margin-bottom: 100px;
+    transition: all ease 0.3s;
+    border-radius: 8px;
+}
+section:hover{
+    transform: translateY(-2px);
+    cursor: pointer;
+    background: rgba(15, 15, 15, 0.75);
 }
 .left{
     grid-column: 6 / 12;
