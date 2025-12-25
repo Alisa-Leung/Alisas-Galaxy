@@ -70,11 +70,12 @@ function moveCamera(){
     sphere.rotation.z += 0.01;
     
     camera.position.z = t * -0.01 + camOffset;
-    camera.position.x = t * -0.0000;
-    camera.rotation.y = t * -0.0000;
+    camera.position.x = t * 0.0002;
+    camera.rotation.y = t * 0.001;
 }
 
 document.body.onscroll = moveCamera;
+camera.position.setZ = 20;
 moveCamera();
 
 window.addEventListener('resize', () => {
